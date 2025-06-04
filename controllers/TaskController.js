@@ -6,6 +6,8 @@ module.exports = class TaskController {
         res.render('tasks/create')
     }
 
+    // CREATE
+
     static async createTaskSave(req, res) {
         const task = {
             title: req.body.title,
@@ -14,12 +16,15 @@ module.exports = class TaskController {
         }
         await Task.create(task)
         
-        console.log(task)
-
         res.redirect('/tasks')
     }
 
-    static showTask(req, res) {
-        res.render('tasks/all')
+    // READ
+
+    static async showTask(req, res) {
+
+        const tasks = await Task.findAll({raw: true})
+
+        res.render('tasks/all', {tasks})
     }
 }
