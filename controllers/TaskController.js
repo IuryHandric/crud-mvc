@@ -28,6 +28,20 @@ module.exports = class TaskController {
         res.render('tasks/all', {tasks})
     }
 
+
+    // UPDATE
+
+    static async updateTask(req, res) {
+
+        const id = req.params.id
+
+        const task = await Task.findOne({raw: true}, {where: {id: id}})
+
+        res.render('tasks/edit', {task})
+    }
+
+
+
     // DELETE
 
     static async removeTask(req, res) {
