@@ -30,7 +30,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 // Ativando arquivo de rotas
-app.use('/', taskRoutes);
+app.use('/tasks', taskRoutes);
 
 // Iniciando Servidor usando Sequelize
 conn.sync().then(() => {
