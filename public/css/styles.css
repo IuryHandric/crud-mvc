@@ -104,6 +104,13 @@ form input[type="submit"]:hover {
     color: #333;
 }
 
+.title.done {
+    text-decoration: line-through;
+    color: #ccc;
+
+}
+
+
 .actions {
     display: flex;
 }
@@ -127,3 +134,4 @@ form input[type="submit"]:hover {
     border: none;
     cursor: pointer;
 }
+
