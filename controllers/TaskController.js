@@ -30,7 +30,7 @@ module.exports = class TaskController {
 
 
     // UPDATE
-
+    // FORMULÁRIO
     static async updateTask(req, res) {
 
         const id = req.params.id
@@ -40,7 +40,20 @@ module.exports = class TaskController {
         res.render('tasks/edit', {task})
     }
 
+    // UPDATE
 
+    static async updateTaskPost(req, res) {
+        const id = req.body.id
+        const task = {
+            title: req.body.title,
+            description: req.body.description
+        }
+
+        await Task.update(task, {where: {id: id}})
+
+        res.redirect('/tasks');
+
+    }
 
     // DELETE
 
